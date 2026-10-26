@@ -1,0 +1,26 @@
+buildscript {
+    repositories { google(); mavenCentral() }
+    dependencies { classpath 'com.android.tools.build:gradle:8.1.4' }
+}
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'com.example.kb'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'com.example.kb'
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['.']
+            java.include 'KeyboardService.java'
+            res.srcDirs = ['res']
+        }
+    }
+}
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
