@@ -175,13 +175,14 @@ public class KeyboardService extends InputMethodService {
 
     void enter() {
         EditorInfo ei = getCurrentInputEditorInfo();
-        if (ei != null) {
+        InputConnection ic = getCurrentInputConnection();
+        if (ei != null && ic != null) {
             int a = ei.imeOptions & EditorInfo.IME_MASK_ACTION;
             boolean multi = (ei.inputType & InputType.TYPE_TEXT_FLAG_MULTI_LINE) != 0;
             boolean noAction = (ei.imeOptions & EditorInfo.IME_FLAG_NO_ENTER_ACTION) != 0;
             if (!multi && !noAction && a != EditorInfo.IME_ACTION_NONE
                     && a != EditorInfo.IME_ACTION_UNSPECIFIED) {
-                performEditorAction(a);
+                ic.performEditorAction(a);
                 return;
             }
         }
