@@ -14,7 +14,7 @@ jobs:
           gradle-version: '8.4'
       - run: |
           mkdir -p res/xml
-          echo '<?xml version="1.0" encoding="utf-8"?><input-method xmlns:android="http://schemas.android.com/apk/res/android"/>' > res/xml/method.xml
+          echo '<?xml version="1.0" encoding="utf-8"?><input-method xmlns:android="http://schemas.android.com/apk/res/android" android:settingsActivity="com.example.kb.MainActivity"/>' > res/xml/method.xml
           gradle assembleDebug
       - uses: actions/upload-artifact@v4
         with:
