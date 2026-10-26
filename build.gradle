@@ -35,8 +35,7 @@ android {
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['.']
-            java.include 'KeyboardService.java'
+            java.srcDirs = ['src']
             res.srcDirs = ['res']
         }
     }
